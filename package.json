@@ -1,0 +1,26 @@
+{
+  "name": "pet-adoption-back-end-metaphysics0",
+  "version": "1.0.0",
+  "description": "Server time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/israeltechchallenge/pet-adoption-back-end-Metaphysics0.git"
+  },
+  "author": "Ryan Roberts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/israeltechchallenge/pet-adoption-back-end-Metaphysics0/issues"
+  },
+  "homepage": "https://github.com/israeltechchallenge/pet-adoption-back-end-Metaphysics0#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
