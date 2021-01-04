@@ -17,6 +17,12 @@ let profileSchema = new Schema(
     email: {
       type: String,
     },
+    admin: {
+      type: Boolean,
+      default: false,
+    },
+    savedPets: [],
+    adoptedPets: [],
   },
   {
     timestamps: true,

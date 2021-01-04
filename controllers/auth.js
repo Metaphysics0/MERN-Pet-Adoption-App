@@ -81,6 +81,8 @@ exports.signup = (req, res, next) => {
           phone: phone,
           email: email,
           bio: '',
+          savedPets: [],
+          adoptedPets: [],
         });
         userProfile
           .save()

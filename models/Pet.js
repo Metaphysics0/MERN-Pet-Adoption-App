@@ -17,7 +17,8 @@ let petSchema = new Schema(
     },
     status: {
       type: String,
-      required: true,
+      // required: true,
+      default: 'Available',
     },
     breed: {
       type: String,
@@ -37,10 +38,11 @@ let petSchema = new Schema(
     hypoallegenic: {
       type: Boolean,
       required: true,
+      default: false,
     },
     dietaryRestrictions: {
       type: String,
-      default: '',
+      default: 'None!',
     },
     dateListed: {
       type: String,
