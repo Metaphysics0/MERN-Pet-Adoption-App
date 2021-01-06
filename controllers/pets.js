@@ -1,74 +1,44 @@
-const fileUpload = require('express-fileupload');
-const cloudinary = require('cloudinary');
 const Pet = require('../models/Pet');
-const fs = require('fs');
-const { response } = require('express');
 const UserProfile = require('../models/UserProfile');
 
 // Get list of pets
-exports.pets = (req, res) => {
-  Pet.find({}, (err, result) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result);
-    }
-  });
+exports.pets = async (req, res) => {
+  try {
+    const pets = await Pet.find({});
+    res.status(200).json(pets);
+  } catch (e) {
+    res.status(500).json({ error: e });
+  }
 };
 
 // Find one pet
-exports.getpet = (req, res) => {
-  Pet.findOne(
-    {
-      _id: req.params.id,
-    },
-    (err, model) => {
-      if (err) {
-        res.status(500).json({ error: err });
-      } else {
-        res.status(200).json({ success: model });
-      }
-    }
-  );
+exports.getpet = async (req, res) => {
+  try {
+    const data = await Pet.findOne({ _id: req.params.id });
+    res.status(200).json({ success: data });
+  } catch (e) {
+    res.status(500).json({ error: e });
+  }
 };
 
 // Get user saved pets
-exports.getsaved = (req, res) => {
-  Pet.find()
-    .where('_id')
-    .in(req.body.savedPets)
-    .exec((err, model) => {
-      if (err) {
-        res.status(500).json({ error: err });
-      } else {
-        res.status(200).json({ success: model });
-      }
-    });
+exports.getsaved = async (req, res) => {
+  try {
+    const response = await Pet.find({ _id: { $in: req.body.savedPets } });
+    res.status(200).json({ success: response });
+  } catch (e) {
+    res.status(500).json({ error: e });
+  }
 };
 
-// Add pet to collection & store image in Cloudinary
-exports.addpet = (req, res) => {
-  let fileToUpload = req.files.photoURL;
-  // fileToUpload.mv('./uploads/' + fileToUpload.name);
-
-  cloudinary.v2.uploader.upload(
-    fileToUpload,
-    // './uploads/' + fileToUpload.name,
-    { public_id: fileToUpload.name },
-    (error, result) => {
-      console.log(result, error);
-      req.body.photo = result.url;
-
-      // store in MongoDB
-      Pet.insertMany(req.body, (err, result) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send(result);
-        }
-      });
-    }
-  );
+// Get users adopted pets
+exports.getadopted = async (req, res) => {
+  try {
+    const response = await Pet.find({ _id: { $in: req.body.adoptedPets } });
+    res.status(200).json({ success: response });
+  } catch (e) {
+    res.status(500).json({ error: e });
+  }
 };
 
 // admin edit pet
@@ -80,9 +50,12 @@ exports.editpet = (req, res) => {
 exports.adoptpet = async (req, res) => {
   try {
     const checkIfOwned = await UserProfile.findOne({ email: req.body.email });
+    const findPet = await Pet.find({ _id: req.params.id });
     let result = checkIfOwned.adoptedPets.find((o) => o.id === req.params.id);
     if (result) {
       return res.status(409).json({ message: 'YOU ALREADY OWN THIS MOFOOOO' });
+    } else if (findPet.status.toLowerCase().includes('adopted')) {
+      return res.status(408).json({ message: 'THIS PET IS ALREADY ADOPTED' });
     } else {
       const updatePet = await Pet.findByIdAndUpdate(req.params.id, {
         status: `Adopted! by ${req.body.firstName} ${

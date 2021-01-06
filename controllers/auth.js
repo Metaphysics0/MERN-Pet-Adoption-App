@@ -53,6 +53,7 @@ exports.signup = (req, res, next) => {
           phone: phone,
           email: email,
           password: password,
+          admin: false,
         });
 
         bcrypt.genSalt(10, function (err, salt) {
@@ -83,6 +84,7 @@ exports.signup = (req, res, next) => {
           bio: '',
           savedPets: [],
           adoptedPets: [],
+          admin: false,
         });
         userProfile
           .save()
