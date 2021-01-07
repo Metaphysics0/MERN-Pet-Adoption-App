@@ -14,17 +14,16 @@ exports.users = async (req, res) => {
   }
 };
 
-// Add pet to DB & store image in Cloudinary
+// Upload image to Cloudinary & Store in DB
 exports.addpet = (req, res) => {
   let fileToUpload = req.files.photoURL;
 
   fileToUpload.mv('./uploads/' + fileToUpload.name);
 
-  cloudinary.v2.uploader.upload(fileToUpload, './uploads/' + fileToUpload.name, (error, result) => {
-    console.log(result, error);
+  cloudinary.v2.uploader.upload('./uploads/' + fileToUpload.name, (error, result) => {
     req.body.photo = result.url;
 
-    // store in MongoDB
+    // Store in MongoDB
     Pet.insertMany(req.body, (err, result) => {
       if (err) {
         res.send(err);

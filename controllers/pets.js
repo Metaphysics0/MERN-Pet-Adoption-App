@@ -53,15 +53,18 @@ exports.adoptpet = async (req, res) => {
     const findPet = await Pet.find({ _id: req.params.id });
     let result = checkIfOwned.adoptedPets.find((o) => o.id === req.params.id);
     if (result) {
-      return res.status(409).json({ message: 'YOU ALREADY OWN THIS MOFOOOO' });
-    } else if (findPet.status.toLowerCase().includes('adopted')) {
-      return res.status(408).json({ message: 'THIS PET IS ALREADY ADOPTED' });
+      return res.status(409).json({ message: 'THIS PET CANNOT BE ADOPTED AT THIS TIME' });
     } else {
-      const updatePet = await Pet.findByIdAndUpdate(req.params.id, {
-        status: `Adopted! by ${req.body.firstName} ${
-          req.body.lastName
-        } on ${new Date().toLocaleDateString()}`,
-      });
+      const updatePet = await Pet.findByIdAndUpdate(
+        req.params.id,
+        {
+          status: `Adopted! by ${req.body.firstName} ${
+            req.body.lastName
+          } on ${new Date().toLocaleDateString()}`,
+        },
+        { upsert: true, new: true }
+      );
+      console.log('UPDATED PET : ', updatePet);
       const updateUser = await UserProfile.findOneAndUpdate(
         { email: req.body.email },
         {
@@ -69,9 +72,9 @@ exports.adoptpet = async (req, res) => {
         },
         { new: true, upsert: true }
       );
-      return res.status(200).json({ updatePet, updateUser });
+      return res.status(200).json({ updatedPet: updatePet, updatedUser: updateUser });
     }
   } catch (e) {
-    return res.status(400).json(e);
+    return res.status(400).json({ error: e });
   }
 };
