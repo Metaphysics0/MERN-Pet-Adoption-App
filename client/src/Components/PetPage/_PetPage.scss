@@ -1,0 +1,97 @@
+.pet-page {
+  display: grid;
+  grid-template-columns: 1fr 3.5fr;
+  grid-template-areas: 'picture info';
+  min-height: 85vh;
+  padding: 1.5rem;
+  background-color: lightblue;
+  border-radius: 10px;
+  gap: 1rem;
+  &__left {
+    padding: 1rem;
+    grid-area: picture;
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #ffefd5;
+    box-shadow: var(--shadow-card);
+    border-radius: 10px;
+    grid-area: info;
+  }
+  &__heading {
+    @include heading-text;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
+  &__subheading {
+    @include heading-text;
+  }
+  &__bio {
+    font-size: 1.75rem;
+    line-height: 2.75rem;
+    font-style: italic;
+  }
+  &__img {
+    width: 50rem;
+    height: 45rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-dreamy);
+    margin-bottom: 4rem;
+  }
+  &__quote {
+    font-size: 2rem;
+    background-color: #ffefd5;
+    border: 2px solid var(--sunset-orange-dark);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    line-height: 3rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--sunset-orange-dark);
+  }
+  &__adopt {
+    @include button-primary;
+    border: 3px solid var(--sunset-orange);
+    width: 15rem;
+    padding: 1.5rem 1rem;
+    background-color: #28a728;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    &:hover {
+      @include button-hover;
+    }
+    &:active {
+      @include button-active;
+    }
+    &.disabled {
+      background-color: grey;
+      color: black;
+    }
+  }
+  &__btn {
+    @include button-primary;
+    &:hover {
+      @include button-hover;
+    }
+    &:active {
+      @include button-active;
+    }
+  }
+}
+
+// Responsive Grid Layout
+@media only screen and (max-width: $bp-large) {
+  .pet-page {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'info';
+    &__left {
+      display: none;
+    }
+  }
+}

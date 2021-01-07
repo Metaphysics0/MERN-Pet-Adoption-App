@@ -1,0 +1,114 @@
+.grid {
+  display: grid;
+  min-height: 85vh;
+  background-color: rgba(255, 255, 255, 0.81);
+  box-shadow: var(--shadow-dreamy);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 1.5fr 1.5fr;
+  grid-template-areas:
+    'bio main main'
+    'picture main main';
+  gap: 1rem;
+  &__main {
+    padding: 1rem;
+    grid-area: main;
+    &--heading {
+      @include heading-text;
+      font-size: 4.5rem;
+      margin-bottom: 2.2rem;
+      font-weight: 400;
+    }
+    &--subheading {
+      text-align: center;
+      font-size: 4rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+    }
+    &--quote {
+      color: var(--sunset-orange-dark);
+      font-weight: 500;
+      font-style: italic;
+      font-size: 2rem;
+      line-height: 2.75rem;
+      letter-spacing: 1.25px;
+      margin: auto;
+      width: 90%;
+      text-align: center;
+    }
+  }
+  &__bio {
+    padding: 1rem;
+    grid-area: bio;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--name {
+      @include heading-text;
+      text-shadow: var(--text-shadow);
+    }
+    &--subheading {
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 3px;
+      font-size: 3rem;
+    }
+    &--phone {
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    &--bio {
+      font-style: italic;
+      line-height: 3.25rem;
+      font-size: 2.2rem;
+      text-align: center;
+      margin: auto 0;
+    }
+  }
+  &__picture {
+    grid-area: picture;
+    margin: auto;
+    &--img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow-smooth);
+    }
+  }
+}
+
+.bio-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--transparent-green);
+  box-shadow: var(--shadow-smooth);
+}
+
+.main-container {
+  padding: 1.75rem 1rem;
+  border-radius: 10px;
+  background-color: var(--pastel-green);
+  height: 100%;
+  box-shadow: var(--shadow-smooth);
+}
+
+// Responsive Grid Layout
+@media only screen and (max-width: $bp-medium) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+      'bio'
+      'main';
+    &__picture {
+      display: none;
+    }
+  }
+}

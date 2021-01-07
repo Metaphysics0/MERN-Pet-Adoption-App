@@ -1,0 +1,72 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 5rem auto;
+  // width: 55rem;
+  width: 95%;
+  &__label {
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+  }
+  &__input {
+    font-size: 1.5rem;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 2px solid var(--sunset-orange-light);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    &::placeholder {
+      font-weight: 500;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: var(--shadow-smooth);
+    }
+    &.area {
+      resize: vertical;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 8rem;
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+      &::placeholder {
+        font-weight: 500;
+      }
+    }
+  }
+  &__btn {
+    @include button-primary;
+    font-size: 1.5rem;
+    width: 20rem;
+    font-weight: 700;
+    padding: 1.5rem;
+    align-self: center;
+    &:hover {
+      @include button-hover;
+    }
+    &:active {
+      @include button-active;
+    }
+  }
+  &__sign-out {
+    @include button-primary;
+    background-color: #c72525;
+    padding: 0.25rem 1rem;
+    width: fit-content;
+    color: white;
+    font-weight: 700;
+    text-shadow: var(--text-shadow);
+    &:hover {
+      @include button-hover;
+    }
+    &:active {
+      @include button-active;
+    }
+  }
+}
+.icon {
+  font-size: 2rem;
+}

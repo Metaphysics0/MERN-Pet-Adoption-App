@@ -1,0 +1,29 @@
+.admin-form {
+  @extend .flex-col;
+  margin: 0 auto;
+  max-width: 70%;
+  &__input {
+    @extend .home__form--input;
+    width: 80%;
+    text-align: left;
+  }
+  &__radio {
+    font-size: 3rem;
+  }
+  &__file {
+    outline: none;
+    cursor: pointer;
+  }
+  &--label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  &--radio {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}

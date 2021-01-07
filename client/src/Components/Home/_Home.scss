@@ -1,0 +1,161 @@
+// Home.jsx
+.home {
+  padding: 2rem;
+  width: 65rem;
+  text-align: center;
+  background-color: rgba(216, 246, 214, 0.865);
+  border-radius: 20px;
+  box-shadow: var(--shadow-dreamy);
+  margin-bottom: 4rem;
+  &.wide {
+    width: 80rem;
+  }
+  &__logo {
+    padding: 1rem;
+    height: 25rem;
+    margin-bottom: 3.5rem;
+    background: url('../../Sass/img/logo_transparent.png') no-repeat center center;
+    background-size: 65rem;
+    &--small {
+      @extend .home__logo;
+      background-size: 40rem;
+      height: 15rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+  &__gif {
+    max-width: 40rem;
+    margin-top: 2.5rem;
+    margin-bottom: 5rem;
+  }
+  &__enter {
+    padding: 0.25rem;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #000;
+  }
+  &__button {
+    @include button-primary;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-smooth);
+    }
+    &:active {
+      transform: translateY(2px);
+      box-shadow: var(--shadow-smooth-light);
+    }
+    &--main {
+      @extend .home__button;
+      padding: 1.25rem 3rem;
+      border: 2px solid var(--sunset-orange-dark);
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    &--signup {
+      @extend .home__button;
+      font-size: 1.5rem;
+      padding: 1.75rem;
+      font-weight: 800;
+      margin: 1rem 0 3.25rem 0;
+    }
+  }
+  &__sign-up {
+    height: min-content;
+    font-size: 1.5rem;
+    align-self: flex-end;
+    font-weight: 500;
+    &--link {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--sunset-orange-dark);
+      transition: all 0.3s ease;
+      &:hover {
+        color: #524668;
+      }
+    }
+  }
+  &__bottom {
+    width: 65rem;
+    &--text {
+      text-align: center;
+      @include quote-text-2;
+      &.bold {
+        line-height: 3.5rem;
+        font-size: 2.25rem;
+        font-weight: 500;
+      }
+    }
+    &--quote {
+      color: var(--color-white);
+      font-style: italic;
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: end;
+    }
+  }
+
+  // ############# SignUp.jsx ##############
+  &__heading {
+    color: #424141;
+    margin-bottom: 2.25rem;
+    font-size: 3rem;
+    &--admin {
+      @include heading-text;
+      margin: 1rem 0 3rem 0;
+      letter-spacing: 4.5px;
+    }
+  }
+  &__form {
+    width: min-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--label {
+      align-self: flex-start;
+      font-size: 1.5rem;
+      margin-left: 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    &--field {
+      display: flex;
+      width: 35rem;
+      margin-bottom: 1.25rem;
+    }
+    &--input {
+      text-align: center;
+      padding: 1.25rem 1.5rem;
+      font-size: 1.5rem;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--sunset-orange);
+      transition: all 0.3s;
+      &:hover {
+        box-shadow: var(--shadow-smooth-light);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: var(--shadow-smooth);
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+    &--icon {
+      color: var(--sunset-orange-dark);
+      position: absolute;
+      margin-left: 0.5rem;
+      width: 3rem;
+      height: 3rem;
+      justify-self: flex-start;
+      align-self: center;
+    }
+    &--error {
+      color: var(--sunset-orange-dark);
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+}

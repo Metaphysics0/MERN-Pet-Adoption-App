@@ -1,0 +1,69 @@
+// SCSS Mixins
+
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin space-between {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+@mixin space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin button-primary {
+  display: inline-block;
+  font-weight: 500;
+  padding: 1rem;
+  outline: none;
+  text-transform: uppercase;
+  background-color: var(--sunset-orange-light);
+  border: 2px solid var(--sunset-orange-dark);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-smooth-light);
+}
+@mixin button-hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-smooth);
+}
+@mixin button-active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-smooth-light);
+}
+
+@mixin heading-text {
+  text-align: center;
+  font-size: 4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+@mixin quote-text {
+  font-size: 2.15rem;
+  text-align: center;
+  color: var(--color-white);
+  text-shadow: var(--text-shadow);
+  font-weight: 600;
+}
+
+@mixin quote-text-2 {
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: var(--text-shadow);
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}

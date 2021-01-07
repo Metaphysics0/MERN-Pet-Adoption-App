@@ -1,0 +1,133 @@
+.admin {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas:
+    'heading users'
+    'pets users';
+  min-height: 85vh;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.81);
+  box-shadow: var(--shadow-dreamy);
+  gap: 1rem;
+  &-heading {
+    padding: 1rem;
+    grid-area: heading;
+    background-color: #add8e6d2;
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
+    &__heading {
+      @include heading-text;
+      margin-bottom: 1.5rem;
+    }
+    &__subheading {
+      @include heading-text;
+      font-size: 2rem;
+    }
+  }
+  &-main {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--transparent-green);
+    grid-area: pets;
+    box-shadow: var(--shadow-card);
+    &__heading {
+      @include heading-text;
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      text-align: left;
+      font-size: 4.25rem;
+      margin-bottom: 1.25rem;
+    }
+    &__subheading {
+      @include heading-text;
+      margin-bottom: 3rem;
+      text-align: left;
+      font-size: 2.5rem;
+      font-weight: 300;
+      &--2 {
+        @extend .admin-main__subheading;
+        letter-spacing: 1.25px;
+        font-weight: 400;
+      }
+    }
+    &__link {
+      color: var(--sunset-orange);
+      font-weight: 500;
+      transition: all 0.3s;
+      &:hover {
+        color: var(--sunset-orange-light);
+      }
+    }
+    &__pets {
+      height: 50rem;
+      &--content {
+        height: 45rem;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          width: 7px;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 4px;
+          background-color: rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+    &--bottom {
+      // display: flex;
+      // align-items: center;
+    }
+  }
+  &-right {
+    padding: 1rem;
+    background-color: blanchedalmond;
+    grid-area: users;
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
+    &__heading {
+      @include heading-text;
+    }
+    &__users {
+      width: 95%;
+      margin: 0 auto;
+      font-size: 1.5rem;
+      border-collapse: collapse;
+      line-height: 4rem;
+      &--user {
+        border-bottom: 2px dotted rgba(211, 211, 211, 0.886);
+        .status {
+          text-align: right;
+          font-weight: 600;
+          &.red {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Grid
+@media only screen and (max-width: $bp-medium) {
+  .admin {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'heading'
+      'pets'
+      'users';
+    gap: 1rem;
+    padding: 0rem;
+    background-color: transparent;
+    box-shadow: none;
+    &-main {
+      &__heading {
+        text-align: center !important;
+        align-self: center;
+      }
+    }
+  }
+}

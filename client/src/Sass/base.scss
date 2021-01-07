@@ -1,0 +1,49 @@
+@import './variables';
+@import './mixins';
+@import '../Sass/helpers';
+@import '../Components/Home/Home';
+@import '../Components/Modals/Modal';
+@import '../Components/Search/Search';
+@import '../Components/Navbar/Navbar';
+@import '../Components/MyPets/MyPets';
+@import '../Components/PetCard/PetCard';
+@import '../Components/PetPage/PetPage';
+@import '../Components/Profile/Profile';
+@import '../Components/Profile/ProfileForm';
+@import '../Components/Admin/Admin';
+@import '../Components/Admin/AddPet';
+@import '../Components/Routes/404/404';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;800&family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+// GLOBAL STYLING
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem == 10px, 10px/16px = 62.5%
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding: 2rem;
+  background-image: linear-gradient(var(--transparent-pink), var(--transparent-pink-dark)),
+    url('./img/dojo.png');
+  background-size: cover;
+  min-height: 100vh;
+  color: #424141;
+}

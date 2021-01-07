@@ -1,0 +1,55 @@
+// MyPets.jsx
+.my-pets {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  background-color: rgba(216, 246, 214, 0.865);
+  border-radius: 15px;
+  box-shadow: var(--shadow-smooth);
+  @media only screen and (max-width: $bp-medium) {
+    max-width: 70vw;
+  }
+  &__heading {
+    @include heading-text;
+    letter-spacing: 1.4px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 65rem;
+  }
+  &__subheading {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-weight: 400;
+  }
+  &__img {
+    max-width: 35rem;
+    max-height: 35rem;
+    justify-self: flex-end;
+    align-self: center;
+    margin: 0 auto 4rem auto;
+    @media only screen and (max-width: $bp-medium) {
+      display: none;
+    }
+  }
+  &__quote {
+    @include quote-text;
+  }
+  &--label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0 1rem;
+  }
+  &__switch {
+    // display: flex;
+    // width: 17.25rem;
+    // justify-content: space-around;
+  }
+  &__radio {
+    margin-right: 0.25rem;
+    cursor: pointer;
+  }
+}

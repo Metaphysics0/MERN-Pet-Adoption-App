@@ -1,0 +1,116 @@
+.modal {
+  position: absolute;
+  top: 30%;
+  left: 32.5%;
+  right: auto;
+  bottom: auto;
+  margin: auto;
+  min-height: 30rem;
+  max-width: 45rem;
+  padding: 2.5rem;
+  font-size: 1.5rem;
+  background-color: #ffefd5cb;
+  border-radius: 10px;
+  box-shadow: var(--shadow-smooth);
+  display: flex;
+  &:focus {
+    outline: none;
+  }
+  &__heading {
+    margin-bottom: 1.25rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__alert {
+    font-family: 'Garamond', serif;
+    text-transform: uppercase;
+    font-size: 2.75rem;
+    text-align: center;
+  }
+  &__gif {
+    max-width: 20rem;
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+  &__img {
+    border-radius: 10px;
+    max-width: 20rem;
+    align-self: center;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-smooth);
+  }
+  &__text {
+    text-align: center;
+    font-size: 2rem;
+    &--error {
+      color: #ff0000;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    &--success {
+      color: #008000;
+      font-weight: 600;
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 1.25rem;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    input[type='email'],
+    input[type='password'] {
+      border: 2px solid var(--sunset-orange);
+      width: 90%;
+      text-align: center;
+      align-self: center;
+      font-size: 2rem;
+      padding: 1rem 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow-smooth-light);
+      &:focus {
+        outline: none;
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+    &--check {
+      font-size: 1.25rem;
+      text-align: right;
+    }
+
+    &--btn {
+      @include button-primary;
+      font-weight: 800;
+      font-size: 1.5rem;
+      width: 10rem;
+      align-self: center;
+      &:hover {
+        @include button-hover;
+      }
+      &:active {
+        @include button-active;
+      }
+    }
+    &--close {
+      color: var(--sunset-red);
+      position: absolute;
+      cursor: pointer;
+      background: transparent;
+      outline: none;
+      border: none;
+      border-radius: 50%;
+      align-self: flex-end;
+      font-size: 2.25rem;
+      transition: all 0.3s;
+      &:hover {
+        color: blue;
+      }
+    }
+  }
+}
