@@ -8,7 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import PetPage from '../PetPage/PetPage';
 import { HomeFull } from '../Home/HomeFull';
 import NoMatch from './404/404';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const Main = ({ auth, setAuth, pets }) => {
   const [profile, setProfile] = useState();

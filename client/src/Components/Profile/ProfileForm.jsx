@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { GiMeditation } from 'react-icons/gi';
 import { useHistory } from 'react-router-dom';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const ProfileForm = ({ setAuth, profile, setProfile, toggleModal }) => {
   const { register, handleSubmit } = useForm({

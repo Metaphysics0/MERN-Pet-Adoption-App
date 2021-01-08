@@ -3,7 +3,7 @@ import Users from './Users';
 import { AiOutlineApi } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import PetCardAdmin from '../PetCard/PetCardAdmin';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const Admin = ({ pets }) => {
   const [users, setUsers] = useState([]);

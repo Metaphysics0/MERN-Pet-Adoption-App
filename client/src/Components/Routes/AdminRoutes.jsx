@@ -11,7 +11,7 @@ import AddPet from '../Admin/AddPet';
 import { HomeFull } from '../Home/HomeFull';
 import NoMatch from './404/404';
 import EditPet from '../EditPet/EditPet';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const AdminRoutes = ({ auth, setAuth, pets, setPets }) => {
   const [profile, setProfile] = useState();

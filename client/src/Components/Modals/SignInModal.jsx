@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const SignIn = ({ modalIsOpen, toggleModal, setAuth }) => {
   const { register, handleSubmit, errors } = useForm();
-  const BASE_URL = 'http://localhost:5000/api';
+  const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
   // Send form data for validation
   const onSubmit = async (data) => {

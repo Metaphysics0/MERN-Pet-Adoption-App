@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Main from './Components/Routes/Main';
 import Register from './Components/Routes/Register';
 import AdminRoutes from './Components/Routes/AdminRoutes';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 function App() {
   const [auth, setAuth] = useState(JSON.parse(localStorage.getItem('login')) || '');

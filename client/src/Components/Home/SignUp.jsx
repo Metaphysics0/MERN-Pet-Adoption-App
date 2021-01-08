@@ -8,7 +8,7 @@ import { FiPhone } from 'react-icons/fi';
 import { FaUserPlus } from 'react-icons/fa';
 import { SuccessModal } from '../Modals/SuccessModal';
 Modal.setAppElement('#root');
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const SignUp = () => {
   const [modalIsOpen, setIsOpen] = useState(false);

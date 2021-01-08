@@ -3,7 +3,7 @@ import { Image } from 'cloudinary-react';
 import { FiHeart } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-const BASE_URL = `http://localhost:5000/api`;
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const PetCard = ({ pet, profile, setProfile }) => {
   // Save pet to user profile

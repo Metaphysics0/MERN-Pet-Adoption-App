@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import AddPetModal from '../Modals/AddPetModal';
-const BASE_URL = `http://localhost:5000/api`;
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 Modal.setAppElement('#root');
 
 const AddPet = ({ pets, setPets }) => {

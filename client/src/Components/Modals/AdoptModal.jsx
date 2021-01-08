@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { FaShoppingBasket } from 'react-icons/fa';
-const BASE_URL = `http://localhost:5000/api`;
+const BASE_URL = 'https://mern-pet-app.herokuapp.com/api';
 
 const AdoptModal = ({
   modalIsOpen,
