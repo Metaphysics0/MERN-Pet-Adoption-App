@@ -1,3 +1,4 @@
+// Import npm packages
 const express = require('express');
 const path = require('path');
 const cloudinary = require('cloudinary');
@@ -14,7 +15,7 @@ const { db } = require('./models/User');
 
 // db
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.MONGODB_URI || process.env.DATABASE, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
