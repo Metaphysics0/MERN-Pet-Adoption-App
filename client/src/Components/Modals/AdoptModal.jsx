@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { FaShoppingBasket } from 'react-icons/fa';
-const BASE_URL = `http://localhost:5000/api/adopt/`;
+const BASE_URL = `http://localhost:5000/api`;
 
 const AdoptModal = ({
   modalIsOpen,
@@ -32,7 +32,7 @@ const AdoptModal = ({
       }),
     };
     try {
-      const response = await fetch(BASE_URL + id, settings);
+      const response = await fetch(BASE_URL + '/adopt/' + id, settings);
       if (response.status === 409) {
         setError(ErrorText);
       } else if (response.status === 408) {
